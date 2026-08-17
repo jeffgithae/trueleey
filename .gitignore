@@ -1,0 +1,31 @@
+# Environment files — never commit secrets
+.env
+.env.local
+.env.*.local
+
+# macOS
+.DS_Store
+._*
+
+# SQL dumps
+*.sql
+
+# Node
+node_modules/
+package-lock.json
+
+# Frontend/Admin build output
+frontend/dist/
+frontend/dist.zip
+admin/dist/
+admin/dist.zip
+
+# Backend vendor and generated files
+backend/vendor/
+backend/.phpunit.result.cache
+backend/storage/logs/*.log
+backend/bootstrap/cache/*.php
+
+# Editor
+.vscode/
+.idea/

@@ -1,0 +1,85 @@
+@import url('https://fonts.cdnfonts.com/css/utendo');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  /* Mystic Green */
+  --green:         #65F8E4;
+  --green-dark:    #3ECBB8;  /* hover / pressed */
+  --green-light:   #9DFAF0;  /* tints */
+  --green-subtle:  #E6FDFB;  /* subtle backgrounds */
+
+  /* Deep Blue */
+  --blue:          #1A1D23;
+  --blue-dark:     #0F1115;  /* hover / pressed */
+  --blue-mid:      #2C3140;  /* softer surfaces */
+
+  /* Rich Purple */
+  --purple:        #5C2A9D;
+  --purple-dark:   #461F7A;
+  --purple-light:  #9B6FD6;
+
+  /* Neutrals */
+  --text-body:     #1A1D23;
+  --white:         #ffffff;
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+body {
+  font-family: 'Utendo', sans-serif;
+  color: var(--text-body);
+}
+
+/* ─── Brand Name ─────────────────────────────────────────────── */
+.brand-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--blue);
+  letter-spacing: -0.5px;
+}
+.brand-name .brand-dot-com {
+  color: var(--green);
+}
+
+/* ─── Logo ───────────────────────────────────────────────────── */
+.logo,
+.logo-design {
+  height: 40px;
+}
+
+/* ─── Navbar / Header ────────────────────────────────────────── */
+.header-style {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+/* ─── Primary Button ────────────────────────────────────────── */
+.btn-1,
+.theme-btn-1 {
+  background-color: var(--green);
+  color: var(--blue);
+  border-radius: 10px;
+  margin-right: 10px;
+}
+.btn-1:hover,
+.theme-btn-1:hover {
+  background-color: var(--green-dark);
+  color: var(--blue);
+  border-radius: 10px;
+}
+
+/* ─── Accent Text / Icons ────────────────────────────────────── */
+.color-1 {
+  color: var(--green);
+}
+
+.icon {
+  color: var(--green);
+}
+
+/* ─── Accent Background ──────────────────────────────────────── */
+.bg-1 {
+  background-color: var(--green);
+}
