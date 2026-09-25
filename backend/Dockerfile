@@ -1,5 +1,11 @@
 FROM php:8.0-apache
 
+# Debian bullseye is past end of life and its security mirror now lists packages it
+# no longer serves. docker-compose.local.yml sets this to 1 to install from the main
+# bullseye repo instead; production builds are unchanged.
+ARG APT_SKIP_SECURITY=0
+RUN if [ "$APT_SKIP_SECURITY" = "1" ]; then sed -i '/debian-security/d' /etc/apt/sources.list; fi
+
 # Install system dependencies and PHP extensions in one layer
 # Using pre-compiled approach to keep build time minimal
 RUN apt-get update && apt-get install -y \
@@ -33,8 +39,9 @@ RUN rm -f .env
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 # Set permissions
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
-    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+# public/assets/product-images receives uploads from ProductsController (new/edit product)
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public/assets/product-images \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public/assets/product-images
 
 # Apache config
 COPY docker/apache.conf /etc/apache2/sites-available/000-default.conf
