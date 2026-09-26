@@ -1,9 +1,9 @@
 FROM php:8.0-apache
 
 # Debian bullseye is past end of life and its security mirror now lists packages it
-# no longer serves. docker-compose.local.yml sets this to 1 to install from the main
-# bullseye repo instead; production builds are unchanged.
-ARG APT_SKIP_SECURITY=0
+# no longer serves, which breaks apt-get install. By default, install from the main
+# bullseye repo instead; pass APT_SKIP_SECURITY=0 to keep the security mirror.
+ARG APT_SKIP_SECURITY=1
 RUN if [ "$APT_SKIP_SECURITY" = "1" ]; then sed -i '/debian-security/d' /etc/apt/sources.list; fi
 
 # Install system dependencies and PHP extensions in one layer
